@@ -1,12 +1,15 @@
 /*
  * @Author: icemaple
  * @Date: 2021-05-12 09:02:25
- * @LastEditTime: 2021-05-12 14:15:23
+ * @LastEditTime: 2021-05-12 15:01:41
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \FlowAccountBook\flowaccountbook\lib\pages\home\home.dart
  */
 
+import 'package:flowaccountbook/pages/addassets/addassets.dart';
+import 'package:flowaccountbook/pages/input/input.dart';
+import 'package:flowaccountbook/pages/wallet/wallet.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -130,12 +133,22 @@ class _HomePageState extends State<HomePage> {
                   child: Text("记一笔"),
                   onPressed: () {
                     print("记一笔点下");
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => InputPage(),
+                      ),
+                    );
                   },
                 ),
                 ElevatedButton(
                   child: Text("添加资产"),
                   onPressed: () {
                     print("添加资产点下");
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => AddAssetsPage(),
+                      ),
+                    );
                   },
                 ),
               ],
@@ -156,6 +169,13 @@ class _HomePageState extends State<HomePage> {
                     ),
                     onTap: () {
                       print("即将进入 现金钱包");
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => WalletPages(
+                            name: "现金钱包",
+                          ),
+                        ),
+                      );
                     },
                   ),
                   ListTile(
@@ -166,6 +186,13 @@ class _HomePageState extends State<HomePage> {
                     ),
                     onTap: () {
                       print("即将进入 支付宝钱包: xx");
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => WalletPages(
+                            name: "支付宝钱包: xx",
+                          ),
+                        ),
+                      );
                     },
                   ),
                   ListTile(
@@ -176,6 +203,13 @@ class _HomePageState extends State<HomePage> {
                     ),
                     onTap: () {
                       print("即将进入 支付宝钱包: vvvv");
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => WalletPages(
+                            name: "支付宝钱包: vvvv",
+                          ),
+                        ),
+                      );
                     },
                   ),
                   ListTile(
@@ -187,6 +221,13 @@ class _HomePageState extends State<HomePage> {
                     ),
                     onTap: () {
                       print("即将进入 微信钱包: xx");
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => WalletPages(
+                            name: "微信钱包: xx",
+                          ),
+                        ),
+                      );
                     },
                   ),
                   ListTile(
@@ -197,6 +238,13 @@ class _HomePageState extends State<HomePage> {
                     ),
                     onTap: () {
                       print("即将进入 微信钱包: vvvv");
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => WalletPages(
+                            name: "微信钱包: vvvv",
+                          ),
+                        ),
+                      );
                     },
                   ),
                 ],
