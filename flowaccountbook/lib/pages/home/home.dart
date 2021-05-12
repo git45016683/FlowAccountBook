@@ -1,7 +1,7 @@
 /*
  * @Author: icemaple
  * @Date: 2021-05-12 09:02:25
- * @LastEditTime: 2021-05-12 18:05:30
+ * @LastEditTime: 2021-05-13 04:47:03
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \FlowAccountBook\flowaccountbook\lib\pages\home\home.dart
@@ -29,6 +29,7 @@ class _HomePageState extends State<HomePage> {
       // ),
       body: Column(
         children: [
+          // 头部展示栏
           Stack(
             children: <Widget>[
               Positioned(
@@ -45,7 +46,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                    top: 50.0, left: 20.0, right: 20.0, bottom: 3.0),
+                    top: 50.0, left: 18.0, right: 18.0, bottom: 18.0),
                 child: Column(
                   children: [
                     Container(
@@ -122,6 +123,7 @@ class _HomePageState extends State<HomePage> {
           SizedBox(
             height: 16.0,
           ),
+          // 记一笔|添加资产按钮
           Container(
             child: ButtonBar(
               // ButtonBar
@@ -147,6 +149,7 @@ class _HomePageState extends State<HomePage> {
           // SizedBox(
           //   height: 3.0,
           // ),
+          // 资产账户列表
           Container(
             child: Expanded(
               child: ListView(
