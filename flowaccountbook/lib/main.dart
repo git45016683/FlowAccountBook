@@ -1,42 +1,29 @@
+/*
+ * @Author: your name
+ * @Date: 2021-05-12 00:35:16
+ * @LastEditTime: 2021-05-12 10:42:31
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \FlowAccountBook\flowaccountbook\lib\main.dart
+ */
 import 'package:flutter/material.dart';
+import './pages/home/home.dart';
+import './pages/bill/bill.dart';
+import './pages/Statistics/Statistics.dart';
+import './pages/invest/invest.dart';
+import './pages/me/me.dart';
+import './navibars/bottomnavibar/bottomNaviBar.dart';
 
 main(List<String> args) {
   return runApp(FAbook());
 }
 
-var _unselectColor = Colors.blueGrey;
-var _selectColor = Colors.red;
-var _selectIconSize = 28.0;
-
-Map<String, List<String>> imageUrlMap = {
-  "首页": [
-    "assets/images/ic_home_nav_property.png",
-    "assets/images/ic_home_nav_property_pressed.png"
-  ],
-  "账单": [
-    "assets/images/ic_home_nav_bill.png",
-    "assets/images/ic_home_nav_bill_pressed.png"
-  ],
-  "报表": [
-    "assets/images/ic_home_nav_chart.png",
-    "assets/images/ic_home_nav_chart_pressed.png"
-  ],
-  "赚钱": [
-    "assets/images/ic_home_nav_finance.png",
-    "assets/images/ic_home_nav_finance_pressed.png"
-  ],
-  "我": [
-    "assets/images/ic_home_nav_me.png",
-    "assets/images/ic_home_nav_me_pressed.png"
-  ],
-};
-
-List test = [
-  Text("首页的页面"),
-  Text("账单的页面"),
-  Text("报表的页面"),
-  Text("赚钱的页面"),
-  Text("我的页面")
+List pageList = [
+  HomePage(),
+  BillPage(),
+  StatisticsPage(),
+  InvestPage(),
+  MePage()
 ];
 
 class FAbook extends StatefulWidget {
@@ -46,88 +33,24 @@ class FAbook extends StatefulWidget {
 
 class _FAbookState extends State<FAbook> {
   int _currentIndex = 0;
+
+  void _onTab(int index) {
+    print(index);
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-      appBar: AppBar(
-        title: Text("我的记账app"),
-      ),
       body: Container(
-        child: test[_currentIndex],
+        child: pageList[_currentIndex],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (int index) {
-          print(index);
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        currentIndex: _currentIndex,
-        selectedItemColor: _selectColor,
-        unselectedItemColor: _unselectColor,
-        selectedFontSize: 10.0,
-        unselectedFontSize: 10.0,
-        unselectedLabelStyle: TextStyle(
-          color: _unselectColor,
-        ),
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Image(
-              width: _selectIconSize,
-              height: _selectIconSize,
-              fit: BoxFit.cover,
-              image: AssetImage(
-                imageUrlMap["首页"][0],
-              ),
-            ),
-            label: "首页",
-          ),
-          BottomNavigationBarItem(
-            icon: Image(
-              width: _selectIconSize,
-              height: _selectIconSize,
-              fit: BoxFit.cover,
-              image: AssetImage(
-                imageUrlMap["账单"][0],
-              ),
-            ),
-            label: "账单",
-          ),
-          BottomNavigationBarItem(
-            icon: Image(
-              width: _selectIconSize,
-              height: _selectIconSize,
-              fit: BoxFit.cover,
-              image: AssetImage(
-                imageUrlMap["报表"][0],
-              ),
-            ),
-            label: "报表",
-          ),
-          BottomNavigationBarItem(
-            icon: Image(
-              width: _selectIconSize,
-              height: _selectIconSize,
-              fit: BoxFit.cover,
-              image: AssetImage(
-                imageUrlMap["赚钱"][0],
-              ),
-            ),
-            label: "赚钱",
-          ),
-          BottomNavigationBarItem(
-            icon: Image(
-              width: _selectIconSize,
-              height: _selectIconSize,
-              fit: BoxFit.cover,
-              image: AssetImage(
-                imageUrlMap["我"][0],
-              ),
-            ),
-            label: "我",
-          ),
-        ],
+      bottomNavigationBar: BottomNaviBar(
+        curIndex: _currentIndex,
+        onMyTab: _onTab,
       ),
     ));
   }
