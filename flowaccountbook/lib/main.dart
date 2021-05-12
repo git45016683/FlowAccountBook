@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-12 00:35:16
- * @LastEditTime: 2021-05-12 15:51:30
+ * @LastEditTime: 2021-05-12 19:41:48
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \FlowAccountBook\flowaccountbook\lib\main.dart
@@ -32,33 +32,47 @@ class _FAbookState extends State<FAbook> {
     return MaterialApp(
       // 路由默认路径设置, 默认为'/'
       initialRoute: '/home',
-      routes: {
-        // '/' 路由默认根路径
-        '/home': (BuildContext context) {
-          return StartUpPage();
-        },
-        '/bill': (BuildContext context) {
-          return BillPage();
-        },
-        '/statistics': (BuildContext context) {
-          return StatisticsPage();
-        },
-        '/invest': (BuildContext context) {
-          return InvestPage();
-        },
-        '/me': (BuildContext context) {
-          return MePage();
-        },
-        '/input': (BuildContext context) {
-          return InputPage();
-        },
-        '/wallet': (BuildContext context) {
-          return WalletPages();
-        },
-        '/addassets': (BuildContext context) {
-          return AddAssetsPage();
-        },
-      },
+      // routes: {
+      //   // '/' 路由默认根路径
+      // },
+      onGenerateRoute: onGenerateRoute,
     );
   }
 }
+
+var routes = {
+  '/home': (BuildContext context) => StartUpPage(),
+  '/bill': (BuildContext context) => BillPage(),
+  '/statistics': (BuildContext context) => StatisticsPage(),
+  '/invest': (BuildContext context) => InvestPage(),
+  '/me': (BuildContext context) => MePage(),
+  '/input': (BuildContext context) => InputPage(),
+  '/wallet': (BuildContext context, {arguments}) =>
+      WalletPages(name: arguments),
+  '/addassets': (BuildContext context) => AddAssetsPage(),
+};
+
+var onGenerateRoute = (RouteSettings setting) {
+  print("$setting----");
+
+  final String name = setting.name;
+  final Function pageContentBuilder =
+      routes[name]; // ≈ (BuildContext context) => MePage()
+
+  if (pageContentBuilder != null) {
+    if (setting.arguments != null) {
+      // 命名路由 有传参
+      final Route route = MaterialPageRoute(
+        builder: (context) =>
+            pageContentBuilder(context, arguments: setting.arguments),
+      );
+      return route;
+    } else {
+      // 无传参
+      final Route route = MaterialPageRoute(
+        builder: (context) => pageContentBuilder(context),
+      );
+      return route;
+    }
+  }
+};

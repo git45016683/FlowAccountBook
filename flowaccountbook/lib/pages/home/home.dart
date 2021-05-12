@@ -1,7 +1,7 @@
 /*
  * @Author: icemaple
  * @Date: 2021-05-12 09:02:25
- * @LastEditTime: 2021-05-12 16:05:10
+ * @LastEditTime: 2021-05-12 18:05:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \FlowAccountBook\flowaccountbook\lib\pages\home\home.dart
@@ -159,17 +159,18 @@ class _HomePageState extends State<HomePage> {
                     ),
                     onTap: () {
                       print("即将进入 现金钱包");
-                      // Navigator.pushNamed(
-                      //   context,
-                      //   "/wallet",
-                      // );
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (BuildContext context) => WalletPages(
-                            name: "现金钱包",
-                          ),
-                        ),
+                      Navigator.pushNamed(
+                        context,
+                        "/wallet",
+                        arguments: "现金钱包",
                       );
+                      // Navigator.of(context).push(
+                      //   MaterialPageRoute(
+                      //     builder: (BuildContext context) => WalletPages(
+                      //       name: "现金钱包",
+                      //     ),
+                      //   ),
+                      // );
                     },
                   ),
                   ListTile(
@@ -180,14 +181,18 @@ class _HomePageState extends State<HomePage> {
                     ),
                     onTap: () {
                       print("即将进入 支付宝钱包: xx");
-                      // Navigator.pushNamed(context, "/wallet");
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (BuildContext context) => WalletPages(
-                            name: "支付宝钱包: xx",
-                          ),
-                        ),
+                      Navigator.pushNamed(
+                        context,
+                        "/wallet",
+                        arguments: "支付宝钱包: xx",
                       );
+                      // Navigator.of(context).push(
+                      //   MaterialPageRoute(
+                      //     builder: (BuildContext context) => WalletPages(
+                      //       name: "支付宝钱包: xx",
+                      //     ),
+                      //   ),
+                      // );
                     },
                   ),
                   ListTile(
@@ -198,14 +203,18 @@ class _HomePageState extends State<HomePage> {
                     ),
                     onTap: () {
                       print("即将进入 支付宝钱包: vvvv");
-                      // Navigator.pushNamed(context, "/wallet");
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (BuildContext context) => WalletPages(
-                            name: "支付宝钱包: vvvv",
-                          ),
-                        ),
+                      Navigator.pushNamed(
+                        context,
+                        "/wallet",
+                        arguments: "支付宝钱包: vvvv",
                       );
+                      // Navigator.of(context).push(
+                      //   MaterialPageRoute(
+                      //     builder: (BuildContext context) => WalletPages(
+                      //       name: "支付宝钱包: vvvv",
+                      //     ),
+                      //   ),
+                      // );
                     },
                   ),
                   ListTile(
@@ -217,14 +226,18 @@ class _HomePageState extends State<HomePage> {
                     ),
                     onTap: () {
                       print("即将进入 微信钱包: xx");
-                      // Navigator.pushNamed(context, "/wallet");
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (BuildContext context) => WalletPages(
-                            name: "微信钱包: xx",
-                          ),
-                        ),
+                      Navigator.pushNamed(
+                        context,
+                        "/wallet",
+                        arguments: "微信钱包: xx",
                       );
+                      // Navigator.of(context).push(
+                      //   MaterialPageRoute(
+                      //     builder: (BuildContext context) => WalletPages(
+                      //       name: "微信钱包: xx",
+                      //     ),
+                      //   ),
+                      // );
                     },
                   ),
                   ListTile(
@@ -235,14 +248,18 @@ class _HomePageState extends State<HomePage> {
                     ),
                     onTap: () {
                       print("即将进入 微信钱包: vvvv");
-                      // Navigator.pushNamed(context, "/wallet");
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (BuildContext context) => WalletPages(
-                            name: "微信钱包: vvvv",
-                          ),
-                        ),
+                      Navigator.pushNamed(
+                        context,
+                        "/wallet",
+                        arguments: "微信钱包: vvvv",
                       );
+                      // Navigator.of(context).push(
+                      //   MaterialPageRoute(
+                      //     builder: (BuildContext context) => WalletPages(
+                      //       name: "微信钱包: vvvv",
+                      //     ),
+                      //   ),
+                      // );
                     },
                   ),
                 ],
