@@ -1,14 +1,12 @@
 /*
  * @Author: icemaple
  * @Date: 2021-05-12 09:02:25
- * @LastEditTime: 2021-05-12 15:01:41
+ * @LastEditTime: 2021-05-12 16:05:10
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \FlowAccountBook\flowaccountbook\lib\pages\home\home.dart
  */
 
-import 'package:flowaccountbook/pages/addassets/addassets.dart';
-import 'package:flowaccountbook/pages/input/input.dart';
 import 'package:flowaccountbook/pages/wallet/wallet.dart';
 import 'package:flutter/material.dart';
 
@@ -133,22 +131,14 @@ class _HomePageState extends State<HomePage> {
                   child: Text("记一笔"),
                   onPressed: () {
                     print("记一笔点下");
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (BuildContext context) => InputPage(),
-                      ),
-                    );
+                    Navigator.pushNamed(context, '/input');
                   },
                 ),
                 ElevatedButton(
                   child: Text("添加资产"),
                   onPressed: () {
                     print("添加资产点下");
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (BuildContext context) => AddAssetsPage(),
-                      ),
-                    );
+                    Navigator.pushNamed(context, "/addassets");
                   },
                 ),
               ],
@@ -169,6 +159,10 @@ class _HomePageState extends State<HomePage> {
                     ),
                     onTap: () {
                       print("即将进入 现金钱包");
+                      // Navigator.pushNamed(
+                      //   context,
+                      //   "/wallet",
+                      // );
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (BuildContext context) => WalletPages(
@@ -186,6 +180,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     onTap: () {
                       print("即将进入 支付宝钱包: xx");
+                      // Navigator.pushNamed(context, "/wallet");
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (BuildContext context) => WalletPages(
@@ -203,6 +198,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     onTap: () {
                       print("即将进入 支付宝钱包: vvvv");
+                      // Navigator.pushNamed(context, "/wallet");
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (BuildContext context) => WalletPages(
@@ -221,6 +217,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     onTap: () {
                       print("即将进入 微信钱包: xx");
+                      // Navigator.pushNamed(context, "/wallet");
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (BuildContext context) => WalletPages(
@@ -238,6 +235,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     onTap: () {
                       print("即将进入 微信钱包: vvvv");
+                      // Navigator.pushNamed(context, "/wallet");
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (BuildContext context) => WalletPages(
