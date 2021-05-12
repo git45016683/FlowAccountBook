@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-12 00:35:16
- * @LastEditTime: 2021-05-12 10:42:31
+ * @LastEditTime: 2021-05-12 11:07:05
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \FlowAccountBook\flowaccountbook\lib\main.dart
@@ -45,6 +45,9 @@ class _FAbookState extends State<FAbook> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
+      // appBar: AppBar(
+      //   title: Text("首页标题"),
+      // ),
       body: Container(
         child: pageList[_currentIndex],
       ),
